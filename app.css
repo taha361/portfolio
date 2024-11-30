@@ -719,9 +719,11 @@ body {
 
 .projects__card {
     width: 100%;
+    height: 200px;
     max-height: 27rem;
     overflow: hidden;
-    position: relative
+    position: relative;
+    cursor: pointer;
 }
 
 .projects__card__image {
@@ -1658,4 +1660,231 @@ body {
 .py-0 {
     padding-top: 0 !important;
     padding-bottom: 0 !important
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent body scroll */
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Modal content */
+.modal-content {
+    position: relative;
+    margin: 5% auto; /* Center vertically */
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 80%; /* Default width */
+    max-height: 80%; /* Limit height */
+    overflow-y: auto; /* Enable internal scroll */
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: scaleUp 0.5s ease-in-out; /* Scaling animation */
+}
+
+/* Responsive: For small screens */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Take up 90% of screen width */
+        height: 90%; /* Take up 90% of screen height */
+        margin: 10% auto; /* Center */
+        border-radius: 8px; /* Slightly smaller radius for smaller screens */
+    }
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2px 7px;
+    border-radius: 50%; /* Circular button */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    background-color: #ff5c5c; /* Highlighted hover state */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Modal title */
+.modal-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    animation: slideIn 0.6s ease-out; /* Slide in animation for title */
+}
+
+/* Modal description */
+.modal-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 60%; /* Smaller width */
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Images in slideshow */
+.slideshow-container img {
+    width: 100%; /* Fit within the container */
+    max-height: 300px; /* Smaller images */
+    object-fit: contain; /* Preserve aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+}
+
+/* Previous & next buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px; /* Smaller size */
+    font-weight: bold;
+    color: white;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.prev {
+    left: -40px; /* Adjust position */
+}
+
+.next {
+    right: -40px; /* Adjust position */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Caption text */
+.text {
+    color: #f1f1f1;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    border-radius: 8px;
+}
+
+/* Dot indicators */
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+.dot:hover {
+    background-color: #ff5c5c;
+}
+
+/* Adjust body overflow when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Animations */
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scale-up animation */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#modalDescription {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 1.5;
 }
